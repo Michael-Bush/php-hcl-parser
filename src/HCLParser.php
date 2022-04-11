@@ -41,8 +41,7 @@ class HCLParser
      */
     private function getJSONString()
     {
-        $command = $this->getBinaryPath().' --reverse <<\'EOF\''.PHP_EOL.$this->hcl.PHP_EOL.'EOF';
-
+        $command = $this->getBinaryPath().' --reverse < ' . $this->hcl;
         exec($command, $lines);
 
         return implode(PHP_EOL, $lines);
