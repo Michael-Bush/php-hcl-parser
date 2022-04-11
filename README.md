@@ -15,7 +15,7 @@ You can install the PHP HCL Parser library using Composer. Just run the followin
 from the root of your project.
 
 ```
-composer require divineomega/php-hcl-parser
+composer require michael-bush/php-hcl-parser
 ```
 
 ## Usage
@@ -23,8 +23,7 @@ composer require divineomega/php-hcl-parser
 To parse HCL into a PHP object, create a new `HCLParser` object, passing it the HCL (as a string), then call the `parse` method. See the example below.
 
 ```php
-$hcl = file_get_contents('example.tf');
-$configObject = (new HCLParser($hcl))->parse();
+$configObject = (new HCLParser(__DIR__ . 'example.tf'))->parse();
 ```
 
 The resulting object will look similar to the following.
