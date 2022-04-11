@@ -22,6 +22,7 @@ abstract class Installer
         // Defaults
         $osString = 'linux';
         $architecture = 'amd64';
+        $extension = '';
 
         // We can not test alternative architectures and operating systems, so exclude from code coverage.
         // @codeCoverageIgnoreStart
@@ -38,12 +39,13 @@ abstract class Installer
                 break;
             case stristr(PHP_OS, 'WIN'):
                 $osString = 'windows';
+                $extension = '.exe';
                 break;
         }
 
         // @codeCoverageIgnoreEnd
 
-        return sprintf('json2hcl_v%s_%s_%s', self::JSON2HCL_VERSION, $osString, $architecture);
+        return sprintf('json2hcl_v%s_%s_%s%s', self::JSON2HCL_VERSION, $osString, $architecture, $extension);
     }
 
     public static function installBinaries()
